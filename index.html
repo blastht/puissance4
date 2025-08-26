@@ -13,7 +13,7 @@
   <header>
     <div class="wrap topbar">
       <div class="title">
-        <h1>Puissance 4 — 
+        <h1>Puissance 4 —
           <span style="background:linear-gradient(90deg,var(--accent),#22d3ee);
           -webkit-background-clip:text;background-clip:text;color:transparent">
             Kei LE BOSS
@@ -21,22 +21,15 @@
         </h1>
         <span class="badge">v1.0</span>
       </div>
-      <!-- Bouton burger -->
       <button id="burgerBtn" class="burger" aria-label="Menu">☰</button>
     </div>
 
-    <!-- Menu caché par défaut -->
     <div class="controls">
       <button id="newBtn" title="Nouvelle partie">🔄 Nouvelle</button>
       <button id="undoBtn" title="Annuler le dernier coup">↩️ Annuler</button>
       <button id="redoBtn" title="Rétablir">↪️ Rétablir</button>
 
-      <div class="seg" role="tablist" aria-label="Qui commence">
-        <input type="radio" name="first" id="start-p1" checked>
-        <label for="start-p1">🔴 J1</label>
-        <input type="radio" name="first" id="start-p2">
-        <label for="start-p2">🟡 J2</label>
-      </div>
+      
 
       <div class="seg" role="tablist" aria-label="Mode de jeu">
         <input type="radio" name="mode" id="mode-pvp" checked>
@@ -57,20 +50,22 @@
   </header>
 
   <main>
-    <div class="wrap board-wrap">
-      <div class="legend">
-        <div class="pill"><span class="dot" style="background:var(--p1)"></span> Joueur 1</div>
-        <div class="pill"><span class="dot" style="background:var(--p2)"></span> Joueur 2</div>
-      </div>
 
+    <div class="seg" role="tablist" aria-label="Qui commence">
+        <button id="chooseP1" class="player-btn active">🔴 Joueur 1</button>
+        <button id="chooseP2" class="player-btn">🟡 Joueur 2</button>
+      </div>
+      <br>
+    <div class="wrap board-wrap">
       <div class="stage" aria-live="polite">
         <div id="board" class="board" role="grid"></div>
         <div class="col-heads" id="colHeads" aria-hidden="true"></div>
       </div>
 
       <div class="actions">
-        <div class="score" id="score">Score — 
-          <span style="color:var(--p1)">J1</span> <strong id="s1">0</strong> : 
+        <div class="score" id="score">
+          Score —
+          <span style="color:var(--p1)">J1</span> <strong id="s1">0</strong> :
           <strong id="s2">0</strong> <span style="color:var(--p2)">J2</span>
         </div>
         <div class="status" id="status">À toi de jouer, Joueur 1 🔴</div>

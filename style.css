@@ -85,7 +85,7 @@ header {
   z-index: 3; 
   backdrop-filter: saturate(140%) blur(8px);
   background: linear-gradient(180deg, rgba(0,0,0,.25), transparent); 
-  padding: 16px 20px 8px;
+  padding: 10px 20px 4px;
 }
 
 .wrap { max-width: 1100px; margin: 0 auto; width: 100%; }
@@ -108,15 +108,16 @@ button:active { transform: translateY(0); }
 .seg label { padding: 8px 12px; border-radius: 8px; cursor: pointer; color: var(--muted); }
 .seg input:checked + label { background: var(--panel); color: var(--text); box-shadow: var(--shadow); }
 
-main { display: grid; place-items: center; padding: 0 16px 24px; }
-.board-wrap { display: grid; gap: 14px; justify-items: center; }
+main { display: grid; place-items: center; padding: 0 16px 24px; padding-bottom: 50px; /* espace pour footer */}
+.board-wrap { display: grid; gap: 14px; justify-items: center; max-width: 800px; /* limite largeur totale */
+  margin: auto; }
 .status { font-size: 14px; color: var(--muted); }
 .score { display: flex; gap: 8px; align-items: center; font-size: 14px; }
 .dot { width: 10px; height: 10px; border-radius: 50%; }
 
 .stage { position: relative; perspective: 1000px; }
 .board {
-  --cols: 7; --rows: 6; --cell: clamp(52px, 7vw, 84px); --gap: 12px;
+  --cols: 7; --rows: 6;  --cell: clamp(45px, 5.5vw, 70px); --gap: 8px;
   position: relative; display: grid; 
   grid-template-columns: repeat(var(--cols), var(--cell)); 
   grid-auto-rows: var(--cell);
@@ -161,6 +162,17 @@ main { display: grid; place-items: center; padding: 0 16px 24px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 canvas#confetti { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
 footer { padding-bottom: 24px; }
+
+/* Ajoute dans ton style.css */
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 10px var(--win); }
+  50% { transform: scale(1.1); box-shadow: 0 0 20px var(--win), 0 0 40px var(--win); }
+}
+
+.cell.win .token {
+  animation: pulseGlow 1s ease-in-out infinite;
+}
+
 
 /* ✅ Version optimisée mobile */
 @media (max-width: 600px) {
@@ -220,3 +232,24 @@ footer { padding-bottom: 24px; }
   }
 }
 
+.player-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.player-btn:hover {
+  transform: translateY(-2px);
+}
+
+.player-btn.active {
+  background: var(--panel-2);
+  color: var(--text);
+  box-shadow: 0 0 10px var(--accent);
+}
