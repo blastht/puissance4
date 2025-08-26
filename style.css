@@ -1,3 +1,8 @@
+html, body {
+  overflow-x: hidden;
+}
+
+
 :root{
   --bg:#0b0f1a; --panel:#0f172a; --panel-2:#131c33; --text:#e5e7eb; --muted:#9aa4b2;
   --accent:#7c3aed; --p1:#ef4444; --p2:#f59e0b; --win:#22d3ee; --shadow:0 10px 30px rgba(0,0,0,.45);
@@ -75,4 +80,52 @@ footer{padding-bottom:24px}
 @media (max-width:600px){
   .board{ --cell:12.5vw; --gap:8px }
   .col-heads .head::after{display:none}
+}
+
+/* Optimisation pour smartphones */
+@media (max-width: 600px){
+  body{
+    gap: 8px;
+    padding: 0 5px;
+  }
+
+  header{
+    padding: 10px;
+  }
+
+  .controls{
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .controls button,
+  .seg label{
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .title h1{
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .board{
+    --cell: 14vw; /* cases un peu plus grandes sur petit écran */
+    --gap: 6px;
+    transform: none; /* on enlève la rotation 3D pour plus de place */
+  }
+
+  .score, .status{
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .legend{
+    flex-direction: column;
+    gap: 6px;
+  }
+  .controls button, .seg label {
+  min-height: 40px;
+}
+
 }
