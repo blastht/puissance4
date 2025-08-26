@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dodger Arcade - Kei LE BOSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="title">🚗 Car Dodger Arcade</h1>
+
+    <div class="game-container flash" id="game-area">
+        <div class="road" id="road"></div>
+        <div id="player"></div>
+        <div id="obstacles"></div>
+        <div id="bonuses"></div>
+    </div>
+
+    <div id="hud">
+    <div class="hud-item">
+        🏆 Score : <span id="score">0</span>
+    </div>
+    <div class="hud-item">
+        <img src="img/coin.png" alt="Coin" class="coin-icon">
+        <span id="coin-count">0</span>
+    </div>
+</div>
+
+
+    <div id="score-display">Score : <span id="score">0</span></div>
+
+    <div id="game-over">
+    <h2>💥 Game Over !</h2>
+    <p>Votre score : <span id="final-score">0</span></p>
+    <button onclick="restartGame()">🔄 Rejouer</button>
+</div>
+
+
+    <!-- Sons -->
+    <audio id="sound-move" src="sounds/move.aiff"></audio>
+    <audio id="sound-crash" src="sounds/crash.wav"></audio>
+    <audio id="sound-bonus" src="sounds/bonus.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
