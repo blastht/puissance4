@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Puissance 4 — Kei LE BOSS Edition</title>
+  <meta name="description" content="Puissance 4 moderne, fluide et puissant. JcJ & JcIA, annuler/rétablir, confettis, clavier, thèmes." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+
+  <header>
+    <div class="wrap topbar">
+      <div class="title">
+        <h1>Puissance 4 — <span style="background:linear-gradient(90deg,var(--accent),#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent">Kei LE BOSS</span> Edition</h1>
+        <span class="badge">v1.0</span>
+      </div>
+      <div class="controls">
+
+
+        <button id="newBtn" title="Nouvelle partie">🔄 Nouvelle</button>
+        <button id="undoBtn" title="Annuler le dernier coup">↩️ Annuler</button>
+        <button id="redoBtn" title="Rétablir">↪️ Rétablir</button>
+
+        <div class="seg" role="tablist" aria-label="Qui commence">
+  <input type="radio" name="first" id="start-p1" checked>
+  <label for="start-p1" title="Joueur 1 commence">🔴 J1</label>
+  <input type="radio" name="first" id="start-p2">
+  <label for="start-p2" title="Joueur 2 commence">🟡 J2</label>
+</div>
+
+
+        <div class="seg" role="tablist" aria-label="Mode de jeu">
+          <input type="radio" name="mode" id="mode-pvp" checked>
+          <label for="mode-pvp" title="Joueur vs Joueur">👥 JvsJ</label>
+          <input type="radio" name="mode" id="mode-ai">
+          <label for="mode-ai" title="Joueur vs IA">🤖 JvsIA</label>
+        </div>
+
+        <div class="seg" role="tablist" aria-label="Difficulté IA">
+          <input type="radio" name="ai-diff" id="ai-easy" checked>
+          <label for="ai-easy" title="IA normale">🌿 Normal</label>
+          <input type="radio" name="ai-diff" id="ai-hard">
+          <label for="ai-hard" title="IA coriace">🔥 Difficile</label>
+        </div>
+
+        <button id="themeBtn" title="Basculer thème">🌓 Thème</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap board-wrap">
+      <div class="legend">
+        <div class="pill"><span class="dot" style="background:var(--p1)"></span> Joueur 1</div>
+        <div class="pill"><span class="dot" style="background:var(--p2)"></span> Joueur 2</div>
+      </div>
+
+      <div class="stage" aria-live="polite">
+        <div id="board" class="board" aria-label="Plateau Puissance 4" role="grid"></div>
+        <div class="col-heads" id="colHeads" aria-hidden="true"></div>
+      </div>
+
+      <div class="actions">
+        <div class="score" id="score">Score — <span style="color:var(--p1)">J1</span> <strong id="s1">0</strong> : <strong id="s2">0</strong> <span style="color:var(--p2)">J2</span></div>
+        <div class="status" id="status">À toi de jouer, Joueur 1 🔴</div>
+      </div>
+
+      <p class="status">Astuce: utilisez ◀ ▶ pour changer de colonne, Entrée pour lâcher un pion.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap status">Made with ♥ — animations GPU, IA en JS, accessibilité clavier, confettis de victoire.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
