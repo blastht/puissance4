@@ -46,6 +46,8 @@
   }
 }
 
+
+
 current = startP1.checked ? 1 : 2; // Définit qui commence (UNE seule fois)
 
     clearWinning();
@@ -307,3 +309,9 @@ current = startP1.checked ? 1 : 2; // Définit qui commence (UNE seule fois)
   // Boot
   newGame(true); updateHeads();
 })();
+
+// Menu burger toggle
+document.getElementById('burgerBtn').addEventListener('click', () => {
+  document.querySelector('.controls').classList.toggle('show');
+});
+
