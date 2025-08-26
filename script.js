@@ -79,6 +79,12 @@
     function getCell(r, c) { return boardEl.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`); }
     function highlightColumn(c, on) { headsEl.children[c].style.opacity = on ? .9 : .4; }
 
+    function iaPlayer() {
+    // Si startP2 est coché, IA = J1
+    // Sinon IA = J2
+    return startP2.checked ? 1 : 2;
+}
+ 
     function firstEmptyRow(c) {
         for (let r = ROWS - 1; r >= 0; r--) if (grid[r][c] === 0) return r;
         return -1;
@@ -128,14 +134,25 @@
     }
 
     function updateStatus() {
-        if (current === 1) {
-            statusEl.textContent = 'À toi de jouer, Joueur 1 🔴';
+    if (modeAi.checked) {
+        const iaNum = iaPlayer();
+        if (current === iaNum) {
+            statusEl.textContent = (moves.length === 0)
+                ? "L'IA commence… 🤖"
+                : "L'IA réfléchit… 🤖";
         } else {
-            statusEl.textContent = modeAi.checked
-                ? "L'IA réfléchit… 🤖"
-                : 'À toi de jouer, Joueur 2 🟡';
+            statusEl.textContent = current === 1
+                ? "À toi de jouer, Joueur 1 🔴"
+                : "À toi de jouer, Joueur 2 🟡";
         }
+    } else {
+        // Mode JvsJ
+        statusEl.textContent = current === 1
+            ? "À toi de jouer, Joueur 1 🔴"
+            : "À toi de jouer, Joueur 2 🟡";
     }
+}
+
 
     function updateScore() { scoreEl1.textContent = scores[1]; scoreEl2.textContent = scores[2]; }
 
